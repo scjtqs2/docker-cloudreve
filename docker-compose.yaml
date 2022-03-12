@@ -70,7 +70,7 @@ services:
       PUID: 1000
       PGID: 1000
       RPC_SECRET: dgSBHGqbEEUfxosVLxDhS27838
-      RPC_PORT: 6800
+      RPC_PORT: 6803
       LISTEN_PORT: 6888
       UPDATE_TRACKERS: true
       DISK_CACHE: 64M
@@ -80,8 +80,9 @@ services:
       - ./aria2/config:/config
       - ./aria2/downloads:/downloads
     ports:
-      - 6803:6800
+      - 6803:6803
       - 6888:6888/udp
+    # network_mode: host
     logging:
       driver: "json-file"
       options:

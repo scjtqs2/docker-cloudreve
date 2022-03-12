@@ -79,10 +79,10 @@ services:
     volumes:
       - ./aria2/config:/config
       - ./aria2/downloads:/downloads
-    ports:
-      - 6803:6803
-      - 6888:6888/udp
-    # network_mode: host
+#    ports:
+#      - 6803:6803
+#      - 6888:6888/udp
+    network_mode: host
     logging:
       driver: "json-file"
       options:

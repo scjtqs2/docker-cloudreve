@@ -72,17 +72,17 @@ services:
       RPC_SECRET: dgSBHGqbEEUfxosVLxDhS27838
       RPC_PORT: 6803
       LISTEN_PORT: 6888
-      UPDATE_TRACKERS: true
+      UPDATE_TRACKERS: "true"
       DISK_CACHE: 64M
-      IPV6_MODE: true
+      IPV6_MODE: "false"
       TZ: Asia/Shanghai
     volumes:
       - ./aria2/config:/config
       - ./aria2/downloads:/downloads
-#    ports:
-#      - 6803:6803
-#      - 6888:6888/udp
-    network_mode: host
+    ports:
+      - 6803:6803
+      - 6888:6888/udp
+#    network_mode: host
     logging:
       driver: "json-file"
       options:

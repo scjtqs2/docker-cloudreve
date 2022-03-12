@@ -70,6 +70,8 @@ services:
       PUID: 1000
       PGID: 1000
       RPC_SECRET: dgSBHGqbEEUfxosVLxDhS27838
+      RPC_PORT: 6800
+      LISTEN_PORT: 6888
       UPDATE_TRACKERS: true
       DISK_CACHE: 64M
       IPV6_MODE: true
@@ -77,4 +79,6 @@ services:
     volumes:
       - ./aria2/config:/config
       - ./aria2/downloads:/downloads
-    network_mode: host
+    ports:
+      - 6803:6800
+      - 6888:6888/udp

@@ -17,6 +17,7 @@ services:
       - ./config:/cloudreve/config
       - ./db:/cloudreve/db
       - ./avatar:/cloudreve/avatar
+      - ./aria2/downloads:/downloads
     logging:
       driver: "json-file"
       options:
@@ -61,3 +62,19 @@ services:
       options:
         max-size: "1M"
         max-file: "10"
+
+  aria2:
+    image: p3terx/aria2-pro
+    restart: always
+    environment:
+      PUID: 1000
+      PGID: 1000
+      RPC_SECRET: dgSBHGqbEEUfxosVLxDhS27838
+      UPDATE_TRACKERS: true
+      DISK_CACHE: 64M
+      IPV6_MODE: true
+      TZ: Asia/Shanghai
+    volumes:
+      - ./aria2/config:/config
+      - ./aria2/downloads:/downloads
+    network_mode: host

@@ -82,3 +82,8 @@ services:
     ports:
       - 6803:6800
       - 6888:6888/udp
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1M"
+        max-file: "10"
